@@ -1,0 +1,131 @@
+
+program->program_1
+创建program：0
+program的名称为：test
+
+program_1->id(identifier_list);program_body.program_1,1
+
+identifier_list->id identifier_list_1
+
+identifier_list_1 → , id identifier_list_1 
+
+identifier_list_1 →  empty
+
+id->output
+在id表中创建id  :1
+该项的类型为：0
+
+id->input
+在id表中创建id  :2
+该项的类型为：0
+
+program_body → const_declarations type_declarations var_declarations subprogram_declarations compound_statement
+
+const_declarations →  empty
+
+type_declarations →  empty
+
+var_declarations → var var_declaration
+
+var_declaration → identifier_list : type ; var_declaration_1
+
+type → standard_type | record record_body end | array [periods] of type
+type:表中第99项的类型为3
+
+identifier_list->id identifier_list_1
+
+identifier_list_1 → , id identifier_list_1 
+
+identifier_list_1 →  empty
+
+id->y
+在id表中创建id  :3
+该项的类型为：3
+
+id->x
+在id表中创建id  :4
+该项的类型为：3
+
+subprogram_declarations → subprogram_declarations_1
+
+subprogram_declarations_1 → subprogram_declaration ; subprogram_declarations_1 | empty
+
+subprogram_declaration → function id formal_parameter : standard_type ; program_body
+新建function:5
+function:第5项的名称为gtcomdiv
+
+formal_parameter → ( parameter_lists ) | empty
+
+parameter_lists → parameter_list parameter_lists_1
+
+parameter_list →  value_parameter
+
+value_parameter → identifier_list : standard_type
+function/procedure:第5项的第1种形参类型为3
+identifier_list->id identifier_list_1
+
+identifier_list_1 → , id identifier_list_1 
+
+identifier_list_1 →  empty
+
+id->b
+在id表中创建id  :6
+该项的类型为：3
+
+id->a
+在id表中创建id  :7
+该项的类型为：3
+function/procedure:第5项的第1种形参个数为2
+parameter_lists_1 → empty
+function/procedure：第5项，的形参种类为(种)：1
+
+program_body → const_declarations type_declarations var_declarations subprogram_declarations compound_statement
+
+const_declarations →  empty
+
+type_declarations →  empty
+
+var_declarations →  empty
+
+subprogram_declarations → subprogram_declarations_1
+
+subprogram_declarations_1 → subprogram_declaration ; subprogram_declarations_1 | empty
+
+compound_statement → begin statement_list end
+
+statement_list → statement statement_list_1
+
+statement -> if expression then statement else_part
+
+expression → simple_expression expression_1
+
+simple_expression → term simple_expression_1  
+
+term → factor term_1  
+
+factor → id factor_1 | num | ' letter ' | ( expression ) | not factor
+
+expression_1 → relop simple_expression 
+!!!!!!!!!!!!
+
+simple_expression → term simple_expression_1  
+
+term → factor term_1  
+
+factor → id factor_1 | num | ' letter ' | ( expression ) | not factor
+id类型符合。3
+
+statement → id statement_1 
+符号表中有此id
+
+statement_1 → id_varparts assignop expression 
+
+expression → simple_expression expression_1
+
+simple_expression → term simple_expression_1  
+
+term → factor term_1  
+
+factor → id factor_1 | num | ' letter ' | ( expression ) | not factor
+
+term_1->mulop factor term_1出错！！

@@ -1,0 +1,64 @@
+program ¡ú program_1
+program_1¡ú id ( identifier_list ) ; program_body . program_1 | empty
+program_body ¡ú const_declarations type_declarations var_declarations subprogram_declarations compound_statement
+identifier_list ¡ú id identifier_list_1
+identifier_list_1 ¡ú , id identifier_list_1 | empty
+const_declarations ¡ú const const_declaration | empty
+const_declaration ¡ú id = const_variable ; const_declaration_1
+const_declaration_1 ¡ú ; id = const_variable ; const_declaration_1 | empty
+const_variable ¡ú + const_variable_1 | - const_variable_1 | const_variable_1 | ' letter '
+const_variable_1 ¡ú id | num
+type_declarations ¡ú type type_declaration | empty
+type_declaration ¡ú id = type ; type_declaration_1
+type_declaration_1 ¡ú ; id = type ; type_declaration_1 | empty
+type ¡ú standard_type | record record_body end | array [periods] of type
+standard_type ¡ú integer | real | Boolean | char
+record_body ¡ú var_declaration | empty
+periods ¡ú period periods_1
+periods_1 ¡ú , period periods_1 | empty
+period ¡ú + period_1 | - period_1 | period_1 | ' letter ' .. const_variable
+period_1 ¡ú id .. const_variable | num .. const_variable
+var_declarations ¡ú var var_declaration | empty
+var_declaration ¡ú identifier_list : type ; var_declaration_1
+var_declaration_1 ¡ú ; identifier_list : type ; var_declaration_1 | empty
+subprogram_declarations ¡ú subprogram_declarations_1
+subprogram_declarations_1 ¡ú subprogram_declaration ; subprogram_declarations_1 | empty
+subprogram_declaration ¡ú function id formal_parameter : standard_type ; program_body | procedure id formal_parameter ; program_body
+formal_parameter ¡ú ( parameter_lists ) | empty
+parameter_lists ¡ú parameter_list parameter_lists_1
+parameter_lists_1 ¡ú ; parameter_list parameter_lists_1 | empty
+parameter_list ¡ú var_parameter | value_parameter
+var_parameter ¡ú var value_parameter
+value_parameter ¡ú identifier_list : standard_type
+compound_statement ¡ú begin statement_list end
+statement_list ¡ú statement statement_list_1
+statement_list_1 ¡ú ; statement statement_list_1 | empty
+statement ¡ú id statement_1 | compound_statement | if expression then statement else_part | case expression of case_body end | while expression do statement | repeat statement_list until expression | for id assignop expression updown expression do statement | empty
+statement_1 ¡ú id_varparts assignop expression | call_procedure_statement_1
+id_varparts ¡ú id_varparts_1
+id_varparts_1 ¡ú [ expression_list ] id_varparts_1 | . id id_varparts_1 | empty
+else_part ¡ú else statement | empty
+case_body ¡ú branch_list | empty
+branch_list ¡ú branch branch_list_1
+branch_list_1 ¡ú ; branch branch_list_1 | empty
+branch ¡ú const_list : statement
+const_list ¡ú const_variable const_list_1
+const_list_1 ¡ú , const_variable const_list_1 | empty
+updown ¡ú to | downto
+call_procedure_statement ¡ú id call_procedure_statement_1
+call_procedure_statement_1 ¡ú ( expression_list ) | empty
+expression_list ¡ú expression expression_list_1
+expression_list_1 ¡ú , expression expression_list_1 | empty
+expression ¡ú simple_expression expression_1
+expression_1 ¡ú relop simple_expression | empty
+simple_expression ¡ú term simple_expression_1 | + term simple_expression_1 | - term simple_expression_1
+simple_expression_1 ¡ú addop term simple_expression_1 | empty
+term ¡ú factor term_1
+term_1 ¡ú mulop factor term_1 | empty
+factor ¡ú id factor_1 | num | ' letter ' | ( expression ) | not factor
+factor_1 ¡ú id_varparts | ( expression_list ) | empty
+unsign_const_variable ¡ú id | num | ' letter '
+addop ¡ú + | - | or
+mulop ¡ú * | / | div | mod | and
+relop ¡ú = | <> | < | <= | > | >=
+assignop ¡ú :=

@@ -1,0 +1,9 @@
+打开.sln文件，直接点击执行。
+生成的文件为：tree idlist 和analyze
+tree为树结构
+idlist为符号表
+analyze为分析过程。
+
+本文件夹中的test为被分析代码。result为语法分析结果。
+语法分析结果有错误，所以无法完成语义分析。
+但符号表是正确的。

@@ -1,0 +1,178 @@
+program -> program_1
+program_1 -> id ( identifier_list ) ; program_body . program_1
+id -> test
+identifier_list -> id identifier_list_1
+id -> input
+identifier_list_1 -> , id identifier_list_1
+id -> output
+identifier_list_1 -> empty
+program_body -> const_declarations type_declarations var_declarations subprogram_declarations compound_statement
+type_declarations -> empty
+var_declarations -> var var_declaration
+var_declaration -> identifier_list : type ; var_declaration_1
+identifier_list -> id identifier_list_1
+id -> x
+identifier_list_1 -> , id identifier_list_1
+id -> y
+identifier_list_1 -> empty
+type -> standard_type
+standard_type -> integer
+var_declaration_1 -> empty
+subprogram_declarations -> subprogram_declarations_1
+subprogram_declarations_1 -> subprogram_declaration ; subprogram_declarations_1
+subprogram_declaration -> function id formal_parameter : standard_type ; program_body
+id -> gtcomdiv
+formal_parameter -> ( parameter_lists )
+parameter_lists -> parameter_list parameter_lists_1
+parameter_list -> value_parameter
+value_parameter -> identifier_list : standard_type
+identifier_list -> id identifier_list_1
+id -> a
+identifier_list_1 -> , id identifier_list_1
+id -> b
+identifier_list_1 -> empty
+standard_type -> integer
+parameter_lists_1 -> empty
+standard_type -> integer
+program_body -> const_declarations type_declarations var_declarations subprogram_declarations compound_statement
+subprogram_declarations -> subprogram_declarations_1
+subprogram_declarations_1 -> empty
+compound_statement -> begin statement_list end
+statement_list -> statement statement_list_1
+statement -> if expression then statement else_part
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> b
+factor_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> relop simple_expression
+relop -> =
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> num
+term_1 -> empty
+simple_expression_1 -> empty
+statement -> id statement_1
+id -> gtcomdiv
+statement_1 -> id_varparts assignop expression
+id_varparts -> id_varparts_1
+id_varparts_1 -> empty
+assignop -> :=
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> a
+else_part -> else statement
+statement -> id statement_1
+id -> gtcomdiv
+statement_1 -> id_varparts assignop expression
+id_varparts -> id_varparts_1
+id_varparts_1 -> empty
+assignop -> :=
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> gtcomdiv
+factor_1 -> ( expression_list )
+expression_list -> expression expression_list_1
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> b
+factor_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> empty
+expression_list_1 -> , expression expression_list_1
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> a
+factor_1 -> empty
+term_1 -> mulop factor term_1
+mulop -> mod
+factor -> id factor_1
+id -> b
+factor_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> empty
+expression_list_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> empty
+statement_list_1 -> empty
+subprogram_declarations_1 -> empty
+compound_statement -> begin statement_list end
+statement_list -> statement statement_list_1
+statement -> id statement_1
+id -> read
+statement_1 -> call_procedure_statement_1
+call_procedure_statement_1 -> ( expression_list )
+expression_list -> expression expression_list_1
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> x
+factor_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> empty
+expression_list_1 -> , expression expression_list_1
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> y
+factor_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> empty
+expression_list_1 -> empty
+statement_list_1 -> ; statement statement_list_1
+statement -> id statement_1
+id -> write
+statement_1 -> call_procedure_statement_1
+call_procedure_statement_1 -> ( expression_list )
+expression_list -> expression expression_list_1
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> gtcomdiv
+factor_1 -> ( expression_list )
+expression_list -> expression expression_list_1
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> x
+factor_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> empty
+expression_list_1 -> , expression expression_list_1
+expression -> simple_expression expression_1
+simple_expression -> term simple_expression_1
+term -> factor term_1
+factor -> id factor_1
+id -> y
+factor_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> empty
+expression_list_1 -> empty
+term_1 -> empty
+simple_expression_1 -> empty
+expression_1 -> empty
+expression_list_1 -> empty
+statement_list_1 -> empty
+program_1 -> empty
