@@ -1,0 +1,18 @@
+
+program->program_1
+创建program：0
+program的名称为：test
+
+program_1->id(identifier_list);program_body.program_1,1
+
+identifier_list->id identifier_list_1
+
+identifier_list_1 → , id identifier_list_1 
+
+id->output
+在id表中创建id  :1
+该项的类型为：0
+
+id->input
+在id表中创建id  :2
+该项的类型为：0
